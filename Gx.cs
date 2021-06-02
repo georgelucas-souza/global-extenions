@@ -111,6 +111,11 @@ namespace GlobalExtensions
             }
         }
 
+        public static string WrapRepeatedChars(this string txt)
+        {
+            return string.Join("", txt.ToCharArray().GroupBy(g => g).Select(s => s.Key.ToString()).ToArray());
+        }
+
         public static T DeepClone<T>(this T obj)
         {
             var json = obj.ToJson();
