@@ -98,6 +98,18 @@ namespace GlobalExtensions
         {
             return JsonConvert.SerializeObject(obj, Formatting.Indented);
         }
+        
+        public static string Normalize(this string txt, string[] lookingFor, string changeTo = "")
+        {
+            if (lookingFor.Contains(txt))
+            {
+                return changeTo;
+            }
+            else
+            {
+                return txt;
+            }
+        }
 
         public static T DeepClone<T>(this T obj)
         {
@@ -128,6 +140,7 @@ namespace GlobalExtensions
 
             return weekNo;
         }
+
 
         public static int DayOfWeekNumber(this DateTime date)
         {
